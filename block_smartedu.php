@@ -101,6 +101,12 @@ class block_smartedu extends block_base {
         $course_info = get_fast_modinfo($COURSE->id);
         $resourses = array();
 
+        print_r($allowed_extensions);
+        print_r($course_info);
+        die();
+
+
+
         foreach ($course_info->cms as $key => $item) {
             // Exclude resources invisible for users 
             if ($item->modname != 'resource') {
