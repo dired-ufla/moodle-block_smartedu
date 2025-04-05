@@ -101,10 +101,6 @@ class block_smartedu extends block_base {
         $course_info = get_fast_modinfo($COURSE->id);
         $resourses = array();
         
-        print_r($course_info->cms);
-        die();
-
-
         foreach ($course_info->cms as $key => $item) {
             // Exclude resources invisible for users 
             if ($item->modname != 'resource') {
@@ -116,14 +112,12 @@ class block_smartedu extends block_base {
             }
 
             // Exclude resources not allowed
-            $resource_details = unserialize($item->customdata["displayoptions"]);
+            //$resource_details = unserialize($item->customdata["displayoptions"]);
 
-    
-
-            $file_extension = $resource_details['filedetails']['extension'];
-            if (!in_array(strtolower($file_extension), $allowed_extensions)) {
-                continue;
-            }
+            //$file_extension = $resource_details['filedetails']['extension'];
+            //if (!in_array(strtolower($file_extension), $allowed_extensions)) {
+              //  continue;
+            //}
 
             $res = new stdClass();
             $res->id = $item->id;
