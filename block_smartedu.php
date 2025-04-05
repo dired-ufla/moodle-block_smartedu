@@ -100,6 +100,9 @@ class block_smartedu extends block_base {
         $allowed_extensions = Text_Extraction::get_valid_file_types();
         $course_info = get_fast_modinfo($COURSE->id);
         $resourses = array();
+        
+        print_r($course_info->cms);
+        die();
 
 
         foreach ($course_info->cms as $key => $item) {
@@ -115,8 +118,6 @@ class block_smartedu extends block_base {
             // Exclude resources not allowed
             $resource_details = unserialize($item->customdata["displayoptions"]);
 
-            print_r($resource_details);
-            die();
     
 
             $file_extension = $resource_details['filedetails']['extension'];
