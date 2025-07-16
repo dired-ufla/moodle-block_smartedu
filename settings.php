@@ -28,9 +28,13 @@ if ($hassiteconfig) {
     $options = array(
         'google' => 'Google (Gemini)',
         'openai' => 'OpenAI (ChatGPT)',
+        'local' => 'Local (Ollama)',
     );
     
     $settings->add(new admin_setting_configselect('block_smartedu/aiprovider', get_string('aiprovider', 'block_smartedu'), null, 'google', $options));
     $settings->add(new admin_setting_configtext('block_smartedu/apikey', get_string('apikey', 'block_smartedu'), null, "", PARAM_TEXT));
+    $settings->add(new admin_setting_configtext('block_smartedu/localaiurl', get_string('localai:url', 'block_smartedu'), get_string('localai:urlexample', 'block_smartedu'), "", PARAM_TEXT));
+    $settings->add(new admin_setting_configtext('block_smartedu/localaimodel', get_string('localai:model', 'block_smartedu'), get_string('localai:modelexample', 'block_smartedu'), "", PARAM_TEXT));
     $settings->add(new admin_setting_configcheckbox('block_smartedu/enablecache', get_string('enablecache', 'block_smartedu'), null,  1));
+   
 }

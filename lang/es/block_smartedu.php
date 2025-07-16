@@ -29,6 +29,10 @@ $string['termsofuse'] = 'Al utilizar el bloque SmartEdu, aceptas sus <a href="ht
 $string['noresources'] = 'No hay <a href="https://github.com/dired-ufla/moodle-block_smartedu/blob/main/file-formats.md" target="_blank">archivos compatibles</a> disponibles para este curso.';
 $string['aiprovider'] = "Elija su proveedor de IA Generativa";
 $string['apikey'] = "Ingrese su clave API";
+$string['localai:url'] = "Ingrese la URL de su servidor local";
+$string['localai:urlexample'] = "http://localhost:11434/api/chat";
+$string['localai:model'] = "Ingrese el modelo de su servidor local";
+$string['localai:modelexample'] = "gemma3:4b";
 $string['enablecache'] = "Habilitar caché de prompts";
 $string['summarytype'] = "Tipo de resumen (para foros y recursos)";
 $string['nquestions'] = "Número de preguntas";

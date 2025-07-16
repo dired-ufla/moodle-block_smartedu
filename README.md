@@ -14,7 +14,7 @@ Current features
 
 - Generate quizzes, study guides and mind maps from lecture notes.
 
-- Currently, the plugin supports the following generative AI providers: Google (Gemini) and OpenAI (ChatGPT). 
+- Currently, the plugin supports the following generative AI providers: Google (Gemini), OpenAI (ChatGPT) and Local (Ollama). 
 
 Requirements
 ------------

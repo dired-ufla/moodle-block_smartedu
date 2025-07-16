@@ -1,3 +1,7 @@
+v.1.12.0
+-------------
+- Provide support for Ollama local AI provider
+
 v.1.11.0
 -------------
 - Provide support for Spanish language 

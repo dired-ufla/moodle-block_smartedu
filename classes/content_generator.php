@@ -26,6 +26,58 @@ namespace block_smartedu;
 
 class content_generator {
     /**
+     * Generates content using Local Ollama AI.
+     *
+     * @param string $api_key The API key for Local Ollama AI.
+     * @param string $prompt The prompt to send to the AI.
+     * @return string The generated content.
+     * @throws Exception If there is a CURL or HTTP error.
+     */
+    protected static function block_smartedu_generate_with_local( $api_key, $prompt, $ai_url, $ai_model ) {
+        $api_url = $ai_url;
+
+        $data = [
+            'model' => $ai_model, // Model name for the local AI service
+            'stream'   => false, // Disable streaming for local AI
+            'messages' => [
+                [
+                    'role' => 'user',
+                    'content' =>  $prompt,
+                ]
+            ]
+        ];
+        
+        $headers = [
+            'Content-Type: application/json',
+        ];
+
+        $options = [
+            'CURLOPT_HTTPHEADER' => $headers,
+            'CURLOPT_TIMEOUT' => 120,
+        ];
+    
+        $curl = new \curl();
+        $response = $curl->post($api_url, json_encode($data), $options);
+
+        if ($curl->get_errno()) {
+            error_log('CURL error: ' . $curl->error);
+            throw new \Exception(get_string('internalerror', 'block_smartedu'));
+        }
+        
+        $httpCode = $curl->info['http_code'];
+        if ($httpCode != 200) {
+            error_log('HTTP error: ' . $httpCode);
+            throw new \Exception(get_string('aiprovidererror', 'block_smartedu'));
+        }
+        
+        $chat_response = json_decode($response, true);
+        $chat_content = $chat_response['message']['content'];
+
+
+        return $chat_content;
+    }
+
+    /**
      * Generates content using Google's AI API.
      *
      * @param string $api_key The API key for Google AI.
@@ -33,7 +85,7 @@ class content_generator {
      * @return string The generated content.
      * @throws Exception If there is a CURL or HTTP error.
      */
-    protected static function block_smartedu_generate_with_google( $api_key, $prompt ) {
+    protected static function block_smartedu_generate_with_google( $api_key, $prompt, $ai_url, $ai_model ) {
         $api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$api_key";
 
         $data = [
@@ -52,7 +104,7 @@ class content_generator {
         $curl = new \curl();
         $options = [
             'CURLOPT_HTTPHEADER' => $headers,
-            'CURLOPT_TIMEOUT' => 90,
+            'CURLOPT_TIMEOUT' => 120,
         ];
     
         $response = $curl->post($api_url, json_encode($data), $options);
@@ -81,7 +133,7 @@ class content_generator {
      * @return string The generated content.
      * @throws Exception If there is a CURL or HTTP error.
      */
-    protected static function block_smartedu_generate_with_openai( $api_key, $prompt ) {
+    protected static function block_smartedu_generate_with_openai( $api_key, $prompt, $ai_url, $ai_model) {
         $api_url = "https://api.openai.com/v1/chat/completions";
 
         $data = [
@@ -99,7 +151,7 @@ class content_generator {
         $curl = new \curl();
         $options = [
             'CURLOPT_HTTPHEADER' => $headers,
-            'CURLOPT_TIMEOUT' => 90,
+            'CURLOPT_TIMEOUT' => 120,
         ];
     
         $response = $curl->post($api_url, json_encode($data), $options);
@@ -129,6 +181,7 @@ class content_generator {
         return [
             'openai',
             'google',
+            'local',
         ];
     }
 
@@ -141,7 +194,7 @@ class content_generator {
      * @return string The generated content.
      * @throws Exception If the AI provider is not valid or if there is an error during generation.
      */
-    public static function block_smartedu_generate( $ai_provider, $api_key, $prompt ) {
+    public static function block_smartedu_generate( $ai_provider, $api_key, $ai_url, $ai_model, $prompt ) {
         $response = '';
         
         $valid_ai_providers = self::block_smartedu_get_valid_ai_providers();
@@ -149,7 +202,7 @@ class content_generator {
 
         if (in_array( $ai_provider, $valid_ai_providers )) {
             $method   = 'block_smartedu_generate_with_' . $ai_provider;
-            $response = self::$method( $api_key, $prompt );
+            $response = self::$method( $api_key, $prompt, $ai_url, $ai_model);
         } else {
             error_log('AI provider not allowed');
             throw new \Exception(get_string('invalidaiprovider', 'block_smartedu'));

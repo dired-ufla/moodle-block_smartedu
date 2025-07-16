@@ -62,6 +62,8 @@ try {
     // Retrieve API key and AI provider configuration.
     $api_key = get_config('block_smartedu', 'apikey');
     $ai_provider = get_config('block_smartedu', 'aiprovider');
+    $ai_url = get_config('block_smartedu', 'localaiurl');
+    $ai_model = get_config('block_smartedu', 'localaimodel');
     $enablecache = get_config('block_smartedu', 'enablecache');
 
     // Generate the prompt for the AI based on the summary type and number of questions.
@@ -78,7 +80,7 @@ try {
         $response = $cached;
     } else {
         // Generate the response using the AI provider.
-        $response = content_generator::block_smartedu_generate($ai_provider, $api_key, $prompt);
+        $response = content_generator::block_smartedu_generate($ai_provider, $api_key, $ai_url, $ai_model, $prompt);
 
         // Parse the AI response.
         $response = preg_replace('/```json\s*(.*?)\s*```/s', '$1', $response);
