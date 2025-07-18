@@ -153,7 +153,8 @@ try {
         $response = content_generator::block_smartedu_generate($ai_provider, $api_key, $ai_url, $ai_model, $prompt);
 
         // Parse the AI response.
-        $response = preg_replace('/```json\s*(.*?)\s*```/s', '$1', $response);
+        //$response = preg_replace('/```json\s*(.*?)\s*```/s', '$1', $response);
+
         $data = json_decode($response);
 
         if (json_last_error() == JSON_ERROR_NONE) {
@@ -163,7 +164,7 @@ try {
 
     if (json_last_error() !== JSON_ERROR_NONE) {
         $data_template['has_error'] = true;
-        $data_template['error_message'] = get_string('aiprovidererror', 'block_smartedu');
+        $data_template['error_message'] = json_last_error_msg();
     } else {
         // Prepare template context.
         $data_template['has_error'] = false;
