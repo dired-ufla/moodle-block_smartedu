@@ -37,7 +37,7 @@ class content_generator {
         $api_url = $ai_url;
 
         $data = [
-            'model' => $ai_model, // Model name for the local AI service
+            'model' => "llama3.1:8b", // Model name for the local AI service
             'stream'   => false, // Disable streaming for local AI
             'messages' => [
                 [
@@ -53,7 +53,7 @@ class content_generator {
 
         $options = [
             'CURLOPT_HTTPHEADER' => $headers,
-            'CURLOPT_TIMEOUT' => 120,
+            'CURLOPT_TIMEOUT' => 180,
         ];
     
         $curl = new \curl();

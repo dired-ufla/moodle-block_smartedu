@@ -52,13 +52,13 @@ if (!$cm = get_coursemodule_from_id($resourcetype, $resourceid)) {
 // Retrieve the resource record from the database.
 $context = context_module::instance($cm->id);
 $course = get_course($cm->course);
+$PAGE->set_context(context_course::instance($course->id)); // Define o contexto como o curso.
 require_login($course, true, $cm);
 
 // Ensure the user has the capability to view the resource.
 require_capability('mod/resource:view', $context);
 $PAGE->requires->js_call_amd('block_smartedu/results', 'init');
 
-$PAGE->set_context(context_course::instance($course->id)); // Define o contexto como o curso.
 $PAGE->set_url(new moodle_url('/blocks/smartedu/results.php', [
     'resourceid' => $resourceid,
     'resourcetype' => $resourcetype,
@@ -153,18 +153,24 @@ try {
         $response = content_generator::block_smartedu_generate($ai_provider, $api_key, $ai_url, $ai_model, $prompt);
 
         // Parse the AI response.
-        //$response = preg_replace('/```json\s*(.*?)\s*```/s', '$1', $response);
+        $response = preg_replace('/```json\s*(.*?)\s*```/s', '$1', $response);
 
         $data = json_decode($response);
+        var_dump($response);
+        die;
 
         if (json_last_error() == JSON_ERROR_NONE) {
             ai_cache::block_smartedu_store_response_in_cache($prompt, $response);
-        }            
+        } else {
+            var_dump($response);
+            die;
+        }         
     }
 
     if (json_last_error() !== JSON_ERROR_NONE) {
+        error_log('HTTP error: ' . json_last_error_msg());
         $data_template['has_error'] = true;
-        $data_template['error_message'] = json_last_error_msg();
+        $data_template['error_message'] = get_string('aiprovidererror', 'block_smartedu');
     } else {
         // Prepare template context.
         $data_template['has_error'] = false;
@@ -218,6 +224,10 @@ try {
 } catch (Exception $e) {
     $has_error = true;
     $error_message = $e->getMessage();
+    
+    var_dump($e);
+    die;
+
     $data_template['has_error'] = true;
     $data_template['error_message'] = $error_message;
 }
