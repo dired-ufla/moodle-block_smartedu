@@ -35,7 +35,7 @@ Basta instalar o plugin e adicionar o bloco a uma página do curso.
 ## ⚙️ Configurações do Administrador
 
 Após instalar o plugin, os administradores podem configurar a integração com provedores de IA generativa.  
-Acesse: `Site administration > Plugins > Blocks > SmartEdu`
+Acesse: `Administração do site > Plugins > Blocos > SmartEdu - Aprendizado Inteligente`
 
 
 Você verá a seguinte página de configuração:
@@ -89,7 +89,7 @@ Na parte inferior do bloco, uma mensagem lembra os usuários de que, ao utilizar
 
 Quando o professor envia as notas de aula, o SmartEdu pode gerar automaticamente **resumos** e **guias de estudo** para apoiar o aprendizado dos alunos.  
 
-O exemplo abaixo mostra o conteúdo gerado a partir do recurso *Segurança da Informação – Parte 1*:
+O exemplo abaixo mostra o conteúdo gerado a partir do recurso *Introdução à Segurança da Informação*:
 
 ![Resumo e Guia de Estudo Gerados](docs/images/generated-study-guide_pt-BR.png)
 
