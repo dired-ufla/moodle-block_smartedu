@@ -1,3 +1,5 @@
+🌐 Linguagem: [🇧🇷 PT-BR](terms-of-use_pt-BR.md) | **🇺🇸 EN**
+
 # Terms of Use for the SmartEdu (block_smartedu) Plugin for Moodle
 
 ## 1. Acceptance of Terms  

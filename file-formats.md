@@ -1,3 +1,5 @@
+🌐 Linguagem: [🇧🇷 PT-BR](file-formats_pt-BR.md) | **🇺🇸 EN**
+
 # Accepted File Formats for the SmartEdu (block_smartedu) Plugin in Moodle
 
 ## Current Accepted File Formats  
