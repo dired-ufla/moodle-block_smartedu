@@ -11,6 +11,14 @@ Para acessar a versão em inglês desta documentação, clique abaixo:
 
 [➡️ Leia o README em Inglês](README.md)
 
+## 🎥 Vídeo de Instalação e Uso
+
+👉 **Acesse o guia de instalação e uso do SmartEdu no YouTube:**
+
+[![Assistir ao vídeo](docs/youtube/thumbnails/thumbnail-yt_pt-BR.png)](https://www.youtube.com/watch?v=1797NLt6NBo)
+
+🔗 Link direto: https://www.youtube.com/watch?v=1797NLt6NBo
+
 ## ✨ Features atuais
 
 - Resume as anotações de aula fornecidas pelo professor em vários [formatos de arquivo](file-formats_pt-BR.md). Usuários podem ocultar itens do plugin usando a tag `smartedu-hide` nas configurações do recurso.
