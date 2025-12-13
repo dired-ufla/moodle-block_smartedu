@@ -1,0 +1,334 @@
+1
+00:00:00,000 --> 00:00:06,759
+Hello, in this video I will show the
+installation, configuration, and
+
+2
+00:00:06,759 --> 00:00:13,000
+usage process of the Smart Edu plugin.
+First, you should go to the Moodle
+
+3
+00:00:13,000 --> 00:00:18,600
+plugins page and download the Smart Edu
+plugin by clicking the download option
+
+4
+00:00:18,600 --> 00:00:23,279
+and then downloading the latest version
+of the plugin. I already have the plugin
+
+5
+00:00:23,279 --> 00:00:29,720
+installed here. So now I go to my Moodle,
+choose the plugin option, install plugin,
+
+6
+00:00:29,720 --> 00:00:36,840
+and upload the file
+I just downloaded.
+
+7
+00:00:36,840 --> 00:00:43,360
+Then just click to install the plugin
+from the .zip file.
+
+8
+00:00:43,360 --> 00:00:48,360
+After that, you will see the plugin
+configuration screen,
+
+9
+00:00:48,360 --> 00:00:54,239
+where you can choose your AI provider.
+Among the options,
+
+10
+00:00:54,239 --> 00:01:00,199
+we have Gemini, ChatGPT, and a local version with Llama. You will enter
+
+11
+00:01:00,199 --> 00:01:04,760
+the API access key of the provider you chose, and the model you want to use.
+
+12
+00:01:04,760 --> 00:01:10,880
+For example, in the case of Google Gemini, you have Gemini 2.0 Flash.
+
+13
+00:01:10,880 --> 00:01:15,000
+You can also, in the case of
+local providers, enter the API access
+
+14
+00:01:15,000 --> 00:01:21,400
+for your AI and choose whether or not to enable the use of prompts,
+
+15
+00:01:21,400 --> 00:01:27,000
+the prompt cache. By enabling this option,
+
+16
+00:01:27,000 --> 00:01:31,840
+you will save the number of requests
+to your AI provider, since the plugin detects
+
+17
+00:01:31,840 --> 00:01:37,240
+whether that prompt has already been queried and does not make a new request,
+
+18
+00:01:37,240 --> 00:01:44,280
+only returns the result it previously obtained.
+
+19
+00:01:45,040 --> 00:01:51,159
+Once configured, I can now go to a
+specific course
+
+20
+00:01:51,159 --> 00:01:56,479
+and, by enabling edit mode, add the
+Smart Edu intelligent learning block.
+
+21
+00:01:56,479 --> 00:02:03,520
+When you do this, you will notice
+on the right side of the screen,
+
+22
+00:02:03,520 --> 00:02:07,439
+or depending on your theme, in other locations, a block called Smart Edu.
+
+23
+00:02:07,439 --> 00:02:13,000
+Here we can see some things.
+
+24
+00:02:13,000 --> 00:02:18,080
+In this information security course,
+I have a discussion forum, a course plan,
+
+25
+00:02:18,080 --> 00:02:26,080
+which is a PDF file, and two PDF files
+with lecture notes.
+
+26
+00:02:26,080 --> 00:02:32,400
+The plugin shows an icon for the
+discussion forum,
+
+27
+00:02:32,400 --> 00:02:37,319
+meaning that this resource is
+available to the plugin.
+
+28
+00:02:37,319 --> 00:02:42,920
+By clicking it, the plugin generates a
+summary of the discussions
+
+29
+00:02:42,920 --> 00:02:46,959
+that took place in that forum. For example,
+I can see that I had five interactions
+
+30
+00:02:46,959 --> 00:02:51,599
+and the plugin summarized them.
+This is useful for the teacher
+
+31
+00:02:51,599 --> 00:02:55,920
+or tutor to get an overview of
+the discussion
+
+32
+00:02:55,920 --> 00:03:04,360
+before reading each post.
+Here we can also see the course plan file.
+
+33
+00:03:04,360 --> 00:03:09,280
+The course plan is a file
+that contains information about the
+
+34
+00:03:09,280 --> 00:03:14,200
+course schedule. It may not be interesting for the teacher to make this file
+
+35
+00:03:14,200 --> 00:03:16,599
+available to the plugin,
+
+36
+00:03:16,599 --> 00:03:19,519
+since it does not make sense to generate summaries, questions,
+
+37
+00:03:19,519 --> 00:03:23,879
+or mind maps from files like this.
+To prevent this file from being processed by the plugin,
+
+38
+00:03:23,879 --> 00:03:32,159
+the teacher can edit the file settings
+and add the Smart Edu hide tag.
+
+39
+00:03:32,159 --> 00:03:37,920
+After doing this, you will notice that
+the file disappears from the plugin links.
+
+40
+00:03:37,920 --> 00:03:43,439
+Note that it is still available to the student,
+but the plugin will no longer
+
+41
+00:03:43,439 --> 00:03:47,439
+consider it for requests.
+
+42
+00:03:47,439 --> 00:03:51,360
+The other file is a lecture notes file for
+the course, called General Concepts
+
+43
+00:03:51,360 --> 00:03:55,519
+of Information Security, part one.
+When clicking on this file,
+
+44
+00:03:55,519 --> 00:04:01,200
+the plugin generates a summary of the
+PDF lecture notes,
+
+45
+00:04:01,200 --> 00:04:06,480
+a study guide for the student,
+and also a mind map
+
+46
+00:04:06,480 --> 00:04:11,599
+about the concepts covered in that class.
+The plugin uses only the content from
+
+47
+00:04:11,599 --> 00:04:15,120
+the file itself to avoid hallucinations.
+
+48
+00:04:15,120 --> 00:04:19,759
+It also generates a set of multiple-choice questions,
+
+49
+00:04:19,759 --> 00:04:25,680
+with which the student can interact
+and then submit the results.
+
+50
+00:04:25,680 --> 00:04:31,360
+The plugin shows the answer options,
+the correct answers, and provides feedback.
+
+51
+00:04:31,360 --> 00:04:37,199
+When the student answers incorrectly,
+feedback is also displayed.
+
+52
+00:04:37,199 --> 00:04:41,520
+All of this can be configured
+by the teacher.
+
+53
+00:04:41,520 --> 00:04:44,120
+The teacher just needs to click the
+three dots
+
+54
+00:04:44,120 --> 00:04:48,600
+and choose Configure block.
+They can choose between a detailed or simple summary,
+
+55
+00:04:48,600 --> 00:04:53,639
+whether or not to use questions,
+and how many questions to generate,
+
+56
+00:04:53,639 --> 00:04:58,479
+from one to seven. Here I will keep five,
+as it was before.
+
+57
+00:04:58,479 --> 00:05:02,919
+They can also choose whether or not to generate a study guide and, in the same way,
+
+58
+00:05:02,919 --> 00:05:07,800
+whether or not to generate a mind map.
+The third feature I would like to comment on
+
+59
+00:05:07,800 --> 00:05:12,840
+is the case where the teacher provides lecture notes,
+
+60
+00:05:12,840 --> 00:05:17,280
+but they are still hidden from students,
+
+61
+00:05:17,280 --> 00:05:21,639
+because the course has
+not yet reached that content.
+
+62
+00:05:21,639 --> 00:05:25,919
+On the right side of the plugin,
+we can see that the resource is available
+
+63
+00:05:25,919 --> 00:05:27,017
+to the teacher,
+
+64
+00:05:27,017 --> 00:05:30,017
+but it appears as hidden for students.
+
+65
+00:05:30,017 --> 00:05:40,160
+This means the student does not have access to that content.
+To verify this situation, I will now log out
+
+66
+00:05:40,160 --> 00:05:45,160
+and log in as a student.
+Now I am authenticated with
+
+67
+00:05:45,160 --> 00:05:52,160
+the student profile,
+and I cannot see the content
+
+68
+00:05:52,160 --> 00:05:57,000
+made available by the teacher,
+which is part two of the lecture notes
+
+69
+00:05:57,000 --> 00:06:01,160
+on general information security concepts.
+
+70
+00:06:01,160 --> 00:06:07,800
+For all content that is available,
+the student has the same functionalities as the teacher.
+
+71
+00:06:07,800 --> 00:06:13,680
+This was the presentation of the Smart Edu plugin.
+I hope you enjoyed it.
+
