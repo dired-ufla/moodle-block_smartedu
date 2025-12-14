@@ -11,6 +11,14 @@ To access the Portuguese version of this documentation, click below:
 
 [➡️ Read the README in Portuguese](README_pt-BR.md)
 
+## 🎥 Installation and Usage Video
+
+👉 **Access the SmartEdu installation and usage guide on YouTube:**
+
+[![Watch the video](docs/youtube/thumbnails/thumbnail-yt.png)](https://www.youtube.com/watch?v=1797NLt6NBo)
+
+🔗 Direct link: https://www.youtube.com/watch?v=1797NLt6NBo
+
 ## ✨ Current Features
 
 - Summarizes lecture notes provided by the teacher in various [file formats](file-formats.md). Users can hide items from the plugin by using tag `smartedu-hide` in the resource settings.
